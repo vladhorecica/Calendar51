@@ -7,9 +7,9 @@ Calendar51 project was build using **Symfony 2.8** framework and a 3-layered app
 I wanted to try a different approach so it might not be a very good implementation.
 
 There are 3 layers:
-    * application    - contains controller (no views since there are only API endpoints), the only layer coupled to the framework
-    * domain         - contains models and services
-    * infrastructure - contains repositories and mappers
+** application    - contains controller (no views since there are only API endpoints), the only layer coupled to the framework
+** domain         - contains models and services
+** infrastructure - contains repositories and mappers
 
 * Layers are decoupled using interfaces.
 * No ORM or annotations were used.
@@ -42,25 +42,25 @@ There are 3 layers:
         - comment     ```string``` (**optional**/ e.g. 'Please be there in time')
     - response:
         - 200 status code:
-         ```
-            {
-              "data": {
-                "id": 12
-              }
-            }
-         ```
+```
+   {
+     "data": {
+       "id": 12
+     }
+   }
+```
         - 400 status code:
-         ```
-            {
-              "message": "To Date param must be greater that From Date param"
-            }
-         ```
+```
+   {
+     "message": "To Date param must be greater that From Date param"
+   }
+```
         - 500 status code:
-         ```
-            {
-              "message": "There was a problem adding this event."
-            }
-         ```
+```
+   {
+     "message": "There was a problem adding this event."
+   }
+```
 
 * Update event:
     - route: **/event/update**
@@ -76,23 +76,23 @@ There are 3 layers:
         - comment     ```string``` (**optional**/ e.g. 'Better eat something before coming.')
     - response:
         - 200 status code:
-         ```
-            {
-              "data": "Event `1` successfully updated."
-            }
-         ```
+```
+   {
+     "data": "Event `1` successfully updated."
+   }
+```
         - 400 status code:
-         ```
-            {
-              "message": "Please provide an event id."
-            }
-         ```
+```
+   {
+     "message": "Please provide an event id."
+   }
+```
         - 500 status code:
-         ```
-            {
-              "message": "Unable to update the requested event."
-            }
-         ```
+```
+   {
+     "message": "Unable to update the requested event."
+   }
+```
 
 * Delete event:
     - route: **/event/delete**
