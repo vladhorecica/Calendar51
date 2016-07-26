@@ -7,3 +7,16 @@ services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    event.repository:
+        class: Calendar51\Infrastructure\Repository\EventRepository
+    calendar51.validator:
+        class: Calendar51\Domain\Event\EventValidator
+        calls:
+            - [initValidator]
+    calendar51.pdo:
+        class: Calendar51\Domain\Db
+        calls:
+            - [setDbName, [%database_name%]]
+            - [setDbHost, [%database_host%]]
+            - [setUsername, [%database_user%]]
+            - [setPassword, [%database_password%]]

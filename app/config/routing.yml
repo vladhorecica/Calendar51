@@ -1,3 +1,24 @@
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
+calendar51.event_add:
+    path: /event/add
+    methods: [POST]
+    defaults: {_controller: AppBundle:Event:add}
+
+calendar51.event_update:
+    path: /event/update
+    methods: [POST]
+    defaults: {_controller: AppBundle:Event:update}
+
+calendar51.event_delete:
+    path: /event/delete
+    methods: [POST]
+    defaults: {_controller: AppBundle:Event:delete}
+
+calendar51.event_get:
+    path: /event/get/{id}
+    methods: [GET]
+    defaults: {_controller: AppBundle:Event:get}
+
+calendar51.event_all:
+    path: /event/all
+    methods: [GET]
+    defaults: {_controller: AppBundle:Event:all}
