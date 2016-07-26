@@ -20,3 +20,13 @@ services:
             - [setDbHost, [%database_host%]]
             - [setUsername, [%database_user%]]
             - [setPassword, [%database_password%]]
+
+    calendar51.schema_update:
+        class: Calendar51\Domain\Event\SchemaUpdate
+        arguments: [@calendar51.pdo, %calendar51_setup_dir_path%]
+
+    calendar51.setup_command:
+        class: Calendar51\Domain\Command\SetupCommand
+        arguments: [@calendar51.schema_update]
+        tags:
+            -  { name: console.command }

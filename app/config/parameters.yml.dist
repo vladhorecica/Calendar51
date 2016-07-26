@@ -17,3 +17,6 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    # Additional parameters added for Calendar51
+    calendar51_setup_dir_path: '%kernel.root_dir%/../src/Calendar51/AppBundle/Setup'
