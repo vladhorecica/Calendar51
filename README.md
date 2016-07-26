@@ -10,7 +10,9 @@ There are 3 layers:
 * Application    - contains controller (no views since there are only API endpoints), the only layer coupled to the framework
 * Domain         - contains models and services
 * Infrastructure - contains repositories and mappers
+
 --------------
+
 * Layers are decoupled using interfaces.
 * No ORM or annotations were used.
 * Models are immutable, anemic and decoupled.
@@ -62,6 +64,8 @@ There are 3 layers:
            }
         ```
 
+--------------
+
 * Update event:
     - route: **/event/update**
     - method: **POST**
@@ -76,23 +80,25 @@ There are 3 layers:
         - comment     ```string``` (**optional**/ e.g. 'Better eat something before coming.')
     - response:
         - 200 status code:
-```
-   {
-     "data": "Event `1` successfully updated."
-   }
-```
+        ```
+           {
+             "data": "Event `1` successfully updated."
+           }
+        ```
         - 400 status code:
-```
-   {
-     "message": "Please provide an event id."
-   }
-```
+        ```
+           {
+             "message": "Please provide an event id."
+           }
+        ```
         - 500 status code:
-```
-   {
-     "message": "Unable to update the requested event."
-   }
-```
+        ```
+           {
+             "message": "Unable to update the requested event."
+           }
+        ```
+
+--------------
 
 * Delete event:
     - route: **/event/delete**
@@ -101,24 +107,25 @@ There are 3 layers:
         - id          ```int```    (e.g. 1)
     - response:
         - 200 status code:
-         ```
-            {
-              "data": "Event `1` successfully deleted."
-            }
-         ```
+        ```
+           {
+             "data": "Event `1` successfully deleted."
+           }
+        ```
         - 400 status code:
-         ```
-            {
-              "message": "Please provide an event id."
-            }
-         ```
+        ```
+           {
+             "message": "Please provide an event id."
+           }
+        ```
         - 500 status code:
-         ```
-            {
-              "message": "Unable to delete the requested event."
-            }
-         ```
+        ```
+           {
+             "message": "Unable to delete the requested event."
+           }
+        ```
 
+--------------
 
 * Get event:
     - route: **/event/get/{id}**
@@ -127,31 +134,33 @@ There are 3 layers:
         - id          ```int```    (e.g. 1)
     - response:
         - 200 status code:
-         ```
-            {
-              "data": {
-                "id": "1",
-                "description": "Daily Standup",
-                "dateFormat": "d-m-y H:i:s",
-                "fromDate": "28-07-16 10:30:00",
-                "toDate": "28-07-16 11:30:00",
-                "location": "305 Room",
-                "comment": null
-              }
-            }
-         ```
+        ```
+           {
+             "data": {
+               "id": "1",
+               "description": "Daily Standup",
+               "dateFormat": "d-m-y H:i:s",
+               "fromDate": "28-07-16 10:30:00",
+               "toDate": "28-07-16 11:30:00",
+               "location": "305 Room",
+               "comment": null
+             }
+           }
+        ```
         - 400 status code:
-         ```
-            {
-              "message": "Please provide an event id."
-            }
-         ```
+        ```
+           {
+             "message": "Please provide an event id."
+           }
+        ```
         - 500 status code:
-         ```
-            {
-              "message": "PHP Exception"
-            }
-         ```
+        ```
+           {
+             "message": "PHP Exception"
+           }
+        ```
+
+--------------
 
 * Get events chronologically:
     - route: **/event/all**
@@ -159,33 +168,33 @@ There are 3 layers:
     - parameters: none
     - response:
         - 200 status code:
-         ```
-            {
-              "data": [
-                {
-                  "id": "3",
-                  "description": "Important Retro Meeting",
-                  "dateFormat": "d-m-y H:i:s",
-                  "fromDate": "27-07-16 10:30:00",
-                  "toDate": "27-07-16 11:30:00",
-                  "location": "301 Room",
-                  "comment": "The whole team should assist."
-                },
-                {
-                  "id": "2",
-                  "description": "Daily Standup",
-                  "dateFormat": "d-m-y H:i:s",
-                  "fromDate": "28-07-16 10:30:00",
-                  "toDate": "28-07-16 11:30:00",
-                  "location": "200 Room",
-                  "comment": "Please bring cookies."
-                }
-              ]
-            }
-         ```
+        ```
+           {
+             "data": [
+               {
+                 "id": "3",
+                 "description": "Important Retro Meeting",
+                 "dateFormat": "d-m-y H:i:s",
+                 "fromDate": "27-07-16 10:30:00",
+                 "toDate": "27-07-16 11:30:00",
+                 "location": "301 Room",
+                 "comment": "The whole team should assist."
+               },
+               {
+                 "id": "2",
+                 "description": "Daily Standup",
+                 "dateFormat": "d-m-y H:i:s",
+                 "fromDate": "28-07-16 10:30:00",
+                 "toDate": "28-07-16 11:30:00",
+                 "location": "200 Room",
+                 "comment": "Please bring cookies."
+               }
+             ]
+           }
+        ```
         - 500 status code:
-         ```
-            {
-              "message": "PHP Exception"
-            }
-         ```
+        ```
+           {
+             "message": "PHP Exception"
+           }
+        ```
